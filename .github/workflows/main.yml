@@ -15,13 +15,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
 
       - name: Show Repository Files
-        run: ls -la
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 2 -type f | head -100
 
-      - name: Success
-        run: echo "NOX Workflow Running Successfully"
+      - name: Validate Workflow
+        run: |
+          echo "NOX validation workflow running successfully"
